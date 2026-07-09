@@ -45,7 +45,7 @@
         <a href="#asks" style="color:#5e5640; text-decoration:none;" class="nav-link">The five asks</a>
         <a href="#timeline" style="color:#5e5640; text-decoration:none;" class="nav-link">Timeline</a>
         <a href="#resources" style="color:#5e5640; text-decoration:none;" class="nav-link">Resources</a>
-        <a href="#action" style="display:inline-flex; align-items:center; gap:7px; color:#2a2419; background:#f4a201; border:1px solid #d98a00; text-decoration:none; font-weight:700; padding:8px 16px; border-radius:8px; box-shadow:0 1px 2px rgba(217,138,0,0.25);">Sign the petition</a>
+        <a href="https://forms.gle/BZd4DcVJxpuVEFZBA" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; color:#2a2419; background:#f4a201; border:1px solid #d98a00; text-decoration:none; font-weight:700; padding:8px 16px; border-radius:8px; box-shadow:0 1px 2px rgba(217,138,0,0.25);">Sign the petition</a>
       </nav>
     </div>
     <div style="position:absolute; left:0; right:0; bottom:-3px; height:3px;">
@@ -66,7 +66,7 @@
       <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:60px; line-height:1.03; letter-spacing:-0.02em; margin:0 0 22px; max-width:820px;">No municipal expansion <span style="color:#1d8fc9;">without a strategic plan.</span></h1>
       <p style="font-size:17.5px; line-height:1.6; color:#5e5640; margin:0 0 30px; max-width:640px;">A ~$10M police facility is heading toward construction bids and borrowing — and the first of several possible tax increases is already in effect, with more expected. Before any irreversible step, we're asking the Board of Supervisors to adopt and publish a clear, public, data-driven strategic plan.</p>
       <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:52px;">
-        <a href="#action" style="display:inline-flex; align-items:center; gap:9px; background:#f4a201; color:#2a2419; border:1px solid #d98a00; font-weight:700; font-size:15px; padding:13px 22px; border-radius:10px; text-decoration:none; box-shadow:0 6px 18px rgba(244,162,1,0.28);">✶ Sign the petition</a>
+        <a href="https://forms.gle/BZd4DcVJxpuVEFZBA" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:#f4a201; color:#2a2419; border:1px solid #d98a00; font-weight:700; font-size:15px; padding:13px 22px; border-radius:10px; text-decoration:none; box-shadow:0 6px 18px rgba(244,162,1,0.28);">✶ Sign the petition</a>
         <a href="#asks" style="display:inline-flex; align-items:center; gap:9px; background:#ffffff; color:#5e5640; border:1px solid #efe5cf; font-weight:600; font-size:15px; padding:13px 22px; border-radius:10px; text-decoration:none;">See the five asks ↓</a>
       </div>
       <div id="statsGrid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:12px; max-width:1000px;"></div>
@@ -211,6 +211,7 @@
 
   // ---------- Config ----------
   var ZOOM_LINK = "https://www.kennett.pa.us/";
+  var PETITION_URL = "https://forms.gle/BZd4DcVJxpuVEFZBA";
   var PETITION_GOAL = 500;
   var EXPAND_ALL_BY_DEFAULT = false;
 
@@ -271,6 +272,8 @@
   var AGE_1203 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_12032025-852";
   var MIN_1203 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_12032025-852";
   var VID_1203 = "https://jmp.sh/share/WpaSPdYo2Fdd0wQ7pFyC";
+  var AGE_0617 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_06172026-897";
+  var VID_0617 = "https://jumpshare.com/share/F44YZJVYDwkI29OkSpwg";
 
   var EVENTS = [
     { id: "rfp", date: "2024-07-01", dateTop: "Jul 2024", dateSub: "→ Aug 6", tag: "Milestone",
@@ -309,14 +312,6 @@
       title: "Board approves budget advertisement & design contracts",
       body: "The Board voted to advertise the 2026 Budget — which includes a 0.1 mil tax increase (about $22 per household on average) and funding for the design phase — and approved the architectural design contract ($555,373) and a separate civil/site design contract ($80,250) to advance the project into design.",
       docs: [ {label:"Meeting video", href:VID_NOV5, icon:"▷"}, {label:"Architectural design packet", href:DESIGN_PKT, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
-    { id: "design26", date: "2026-01-01", dateTop: "2026", dateSub: "Jan → Dec", tag: "Looking ahead",
-      title: "The “design year” — drawings, permits, land development",
-      body: "The Township designated 2026 as the design year: design and construction documentation, land development, and permitting are underway, alongside continued community engagement and funding preparation. This is the window for residents to review schematic designs and cost estimates as they firm up.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"}, {label:"Agenda Center", href:AGENDA, icon:"▤"} ] },
-    { id: "bid27", date: "2027-01-01", dateTop: "Early 2027", dateSub: "Jan → Feb", tag: "Looking ahead",
-      title: "Construction bidding & contractor agreements",
-      body: "Per the published schedule, the project moves to bidding and preparation of prime contractor agreements in early 2027 — the point at which firm construction costs come into focus before any groundbreaking.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
 
     { id: "budget24", date: "2023-12-06", dateTop: "Dec 6, 2023", dateSub: "Board vote", tag: "Board action",
       title: "2024 budget approved; police expansion requests rejected",
@@ -376,7 +371,12 @@
     { id: "cmt0603", date: "2026-06-03", dateTop: "Jun 3, 2026", dateSub: "Public comment", tag: "Public comment",
       title: "Resident comment: publish a police strategic plan & projections",
       body: "A resident called on the Board to create a public police strategic plan and to produce long-term financial projections for residents before advancing the project or raising taxes.",
-      docs: [ {label:"Comments (PDF)", href:"documents/2026-06-03-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_JUN3, icon:"▷"}, {label:"Minutes", href:MIN_0603, icon:"▤"} ] }
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-06-03-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_JUN3, icon:"▷"}, {label:"Minutes", href:MIN_0603, icon:"▤"} ] },
+
+    { id: "bailey0617", date: "2026-06-17", dateTop: "Jun 17, 2026", dateSub: "Supervisor comment", tag: "Milestone",
+      title: "Supervisor Mike Bailey backs public planning before a final vote",
+      body: "During the supervisor comment period at the Board meeting, Supervisor Mike Bailey endorsed the idea that the Township should have public planning documents — such as a police strategic plan — in place before any final vote on the building. Minutes for this meeting are not yet published.",
+      docs: [ {label:"Meeting video", href:VID_0617, icon:"▷"}, {label:"Agenda", href:AGE_0617, icon:"▤"} ] }
   ];
 
   var STATS = [
@@ -415,7 +415,6 @@
     "Public engagement": { fg:"#9a6a06", bg:"#fdeec8" },
     "Press":             { fg:"#6b6147", bg:"#efe9da" },
     "Milestone":         { fg:"#2f7d2f", bg:"#e6f4e0" },
-    "Looking ahead":     { fg:"#b9710a", bg:"#fde8c2" },
     "Public comment":    { fg:"#6d4bc4", bg:"#ece5fb" }
   };
   function tagStyle(t) { return TAG_STYLE[t] || { fg:"#5e5640", bg:"#f1ecdd" }; }
@@ -545,7 +544,7 @@
   }
 
   function renderFilters(order) {
-    var tags = ["All", "Board action", "Public comment", "Public engagement", "Press", "Milestone", "Looking ahead"];
+    var tags = ["All", "Board action", "Public comment", "Public engagement", "Press", "Milestone"];
     var counts = {};
     tags.forEach(function (t) {
       counts[t] = t === "All" ? order.all.length : order.all.filter(function (e) { return e.tag === t; }).length;
@@ -683,6 +682,7 @@
     renderPetition();
 
     document.getElementById("petBtn").addEventListener("click", function () {
+      window.open(PETITION_URL, "_blank", "noopener");
       state.pet += 1;
       try { localStorage.setItem("sunny_ksq_pet", String(state.pet)); } catch (e) {}
       renderPetition();
