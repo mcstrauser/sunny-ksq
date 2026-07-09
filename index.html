@@ -214,11 +214,12 @@
   var PETITION_URL = "https://forms.gle/BZd4DcVJxpuVEFZBA";
   var PETITION_GOAL = 500;
   // Signature count. PETITION_COUNT is the manual fallback — update it as
-  // responses grow. If PETITION_CSV_URL is set to the form's responses Google
-  // Sheet "published to the web" as CSV, the count is fetched live on load
-  // (each data row = one signature) and overrides the manual number.
+  // responses grow. If PETITION_COUNT_URL is set to the Apps Script web-app
+  // endpoint (returns {"count": N} — see scripts/petition-count.gs), the live
+  // count is fetched on load and overrides the manual number. The responses
+  // sheet itself stays private; only the total is exposed.
   var PETITION_COUNT = 64;
-  var PETITION_CSV_URL = "";
+  var PETITION_COUNT_URL = "";
   var EXPAND_ALL_BY_DEFAULT = false;
 
   // ---------- Helpers ----------
@@ -665,17 +666,17 @@
     document.getElementById("petBar").style.width = pct + "%";
   }
 
-  // Pull the live signature count from the form's responses sheet (published to
-  // the web as CSV). Each non-empty data row past the header counts as one.
+  // Pull the live signature count from the Apps Script web app, which reads the
+  // private responses sheet and returns only {"count": N}. A valid positive
+  // number overrides the manual fallback; anything else leaves it untouched.
   function fetchPetitionCount() {
-    if (!PETITION_CSV_URL) return;
-    fetch(PETITION_CSV_URL, { cache: "no-store" })
-      .then(function (r) { return r.ok ? r.text() : null; })
-      .then(function (text) {
-        if (!text) return;
-        var rows = text.replace(/\r/g, "").split("\n").filter(function (l) { return l.trim() !== ""; });
-        var n = Math.max(0, rows.length - 1); // drop header row
-        if (n > 0) { state.pet = n; renderPetition(); }
+    if (!PETITION_COUNT_URL) return;
+    fetch(PETITION_COUNT_URL, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        var n = parseInt(data.count, 10);
+        if (isFinite(n) && n > 0) { state.pet = n; renderPetition(); }
       })
       .catch(function () {});
   }
