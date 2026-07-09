@@ -235,6 +235,43 @@
   var CAPITAL = "https://www.kennett.pa.us/DocumentCenter/View/7994/Agenda-item-5-Capital-Project-Requests-2025-";
   var AGENDA = "https://www.kennett.pa.us/AgendaCenter";
 
+  // Township document / presentation links
+  var GKO_AGENDA  = "https://www.kennett.pa.us/DocumentCenter/View/7950/Agenda-item-6_f-Township--Police-Building-Feasibility-Study-";
+  var AMEND_DOC   = "https://www.kennett.pa.us/DocumentCenter/View/8423/Agenda-item-5_c-Amendment_Feasibility-Study";
+  var FEAS_REPORT = "https://www.kennett.pa.us/DocumentCenter/View/9087/Kennett-Township---Feasibility-Master-Plan-Study-Final-Report";
+  var FEAS_PPT    = "https://www.kennett.pa.us/DocumentCenter/View/8741/2025-08-Feasibility-Study-Power-Point-FINAL";
+  var OCT_PRES    = "https://www.kennett.pa.us/DocumentCenter/View/9088/2025-10-Feasibility-Study-Update-FINAL";
+
+  // Meeting videos (Township-posted recordings)
+  var VID_AUG6  = "https://jmp.sh/share/k4EBm7VqOxkFSM9zXqlZ";
+  var VID_NOV5  = "https://jumpshare.com/share/ER7yAz7qI59rCOp05x6a";
+  var VID_JAN5  = "https://jmp.sh/share/wrEknBPvrVBJmQq4jMzE";
+  var VID_FEB4  = "https://jmp.sh/share/mm6mElx6JbtxRr4YvSS0";
+  var VID_MAR11 = "https://jmp.sh/IVRFtcsx";
+  var VID_APR25 = "https://jumpshare.com/share/Ymc8tO1vpX75KLMOWQ1j";
+  var VID_MAY6  = "https://jumpshare.com/share/5sLR1NeZMYPCC9I6Iijp";
+  var VID_JUN3  = "https://jumpshare.com/share/tARQCVsqhL8oXpXxkzPZ";
+
+  // AgendaCenter minutes (posted under the meeting's own date once approved)
+  var MIN_0105 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_01052026-856";
+  var MIN_0204 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_02042026-862";
+  var MIN_0506 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_05062026-886";
+  var MIN_0603 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_06032026-893";
+
+  // Archived meetings (agenda / minutes / video)
+  var AGE_1206 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_12062023-700";
+  var MIN_1206 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_12062023-700";
+  var VID_1206 = "https://jmp.sh/v/SUsBu1X7UiU2znEDBexM";
+  var AGE_0221 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_02212024-717";
+  var MIN_0221 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_02212024-717";
+  var VID_0221 = "https://jmp.sh/v/NzZA9x6gsfZNDU4P75ZM";
+  var AGE_0903 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_09032025-831";
+  var MIN_0903 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_09032025-831";
+  var VID_0903 = "https://jmp.sh/share/abz9UsGU5oIvZTgYdXjY";
+  var AGE_1203 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Agenda/_12032025-852";
+  var MIN_1203 = "https://www.kennett.pa.us/AgendaCenter/ViewFile/Minutes/_12032025-852";
+  var VID_1203 = "https://jmp.sh/share/WpaSPdYo2Fdd0wQ7pFyC";
+
   var EVENTS = [
     { id: "rfp", date: "2024-07-01", dateTop: "Jul 2024", dateSub: "→ Aug 6", tag: "Milestone",
       title: "Feasibility study put out to bid",
@@ -242,20 +279,20 @@
       docs: [ {label:"Project hub", href:HUB, icon:"⌂"}, {label:"2025 capital requests", href:CAPITAL, icon:"▤"} ] },
     { id: "gko", date: "2024-09-04", dateTop: "Sep 4, 2024", dateSub: "Board action", tag: "Board action",
       title: "GKO Architects appointed for the study",
-      body: "On the recommendation of the Director of Public Works, the Board of Supervisors authorized a contract with GKO Architects to perform the feasibility study — beginning an in-depth review of current conditions, space usage, and current/future staffing needs for both departments.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
+      body: "On the recommendation of the Director of Public Works, the Board of Supervisors selected and authorized a contract with GKO Architects to perform the feasibility study — beginning an in-depth review of current conditions, space usage, and current/future staffing needs for both departments. The board briefing referenced a Request for Proposals with details behind the selection, but that RFP was not posted on the Township website.",
+      docs: [ {label:"Agenda item (PDF)", href:GKO_AGENDA, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
     { id: "amend", date: "2025-03-19", dateTop: "Mar 19, 2025", dateSub: "Board action", tag: "Board action",
       title: "Board approves amendment to GKO agreement",
       body: "The Board of Supervisors approved an amendment to the original agreement with GKO Architects as the scope of the feasibility work was refined.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
+      docs: [ {label:"Amendment (PDF)", href:AMEND_DOC, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
     { id: "complete", date: "2025-07-15", dateTop: "Jul 15, 2025", dateSub: "Milestone", tag: "Milestone",
       title: "Feasibility study completed",
       body: "GKO Architects completed the feasibility study. It evaluated three paths — a major addition to the existing building, off-site options, and a new building on the current site — and summarized the facility needs and options considered.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
+      docs: [ {label:"Feasibility & master plan (PDF)", href:FEAS_REPORT, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
     { id: "aug6", date: "2025-08-06", dateTop: "Aug 6, 2025", dateSub: "Public meeting", tag: "Board action",
       title: "Findings presented; separate police building recommended",
-      body: "Township Manager Alison Dobbins and Public Works Director Ted Otteni presented the study results to the Board and the public, recommending construction of a separate Police building on the existing Township property. Public input was requested. GKO introduced design scenarios including a ~17,000 sq-ft concept, later scaled down.",
-      docs: [ {label:"Meeting video & info", href:HUB, icon:"▷"}, {label:"Press: plans unveiled", href:PRESS_AUG, icon:"▤"} ] },
+      body: "Township Manager Alison Dobbins and Public Works Director Ted Otteni presented the study results to the Board and the public, recommending construction of a separate Police building on the existing Township property. Public input was requested. GKO introduced design scenarios including a ~17,000 sq-ft concept, later scaled down. The presentation itself was not linked on the meeting agenda, though the slides were later posted to the project hub.",
+      docs: [ {label:"Feasibility presentation (PDF)", href:FEAS_PPT, icon:"▤"}, {label:"Meeting video", href:VID_AUG6, icon:"▷"}, {label:"Press: plans unveiled", href:PRESS_AUG, icon:"▤"} ] },
     { id: "press1", date: "2025-08-28", dateTop: "Aug 28, 2025", dateSub: "Coverage", tag: "Press",
       title: "“Kennett Township unveils plans for new police facility”",
       body: "Chester County Press detailed the existing second-floor police space — roughly 2,000 sq ft with no lobby, dedicated interview room, or secure prisoner processing — and the financing strategy floated at the time: ~$2M in existing funds, an $8M 25-year bond, and a possible per-household property tax increase.",
@@ -266,12 +303,12 @@
       docs: [ {label:"Open house info", href:HUB, icon:"⌂"} ] },
     { id: "oct22", date: "2025-10-22", dateTop: "Oct 22, 2025", dateSub: "Public meeting", tag: "Board action",
       title: "Proposal update + 2026 budget financial impact",
-      body: "At the Board meeting, staff updated the proposal and presented the 2026 Budget with the financial impact of the expansion — including bond scenarios (a favored 25-year bond) and a possible one-tenth-of-a-mil tax increase. Residents raised financial concerns during public comment.",
-      docs: [ {label:"Meeting minutes (10/22)", href:MIN_1022, icon:"▤"}, {label:"Design contract packet", href:DESIGN_PKT, icon:"▤"}, {label:"Slides & video", href:HUB, icon:"▷"} ] },
+      body: "At the Board meeting, staff updated the proposal and Amy Heinrich presented the financial impact of the expansion alongside the 2026 Budget — including bond scenarios (a favored 25-year bond) and a possible one-tenth-of-a-mil tax increase. The presentation was not linked on the meeting agenda. Residents raised financial concerns during public comment.",
+      docs: [ {label:"Financial impact presentation (PDF)", href:OCT_PRES, icon:"▤"}, {label:"Meeting minutes (10/22)", href:MIN_1022, icon:"▤"}, {label:"Design contract packet", href:DESIGN_PKT, icon:"▤"} ] },
     { id: "nov5", date: "2025-11-05", dateTop: "Nov 5, 2025", dateSub: "Board vote", tag: "Board action",
       title: "Board approves budget advertisement & design contracts",
       body: "The Board voted to advertise the 2026 Budget — which includes a 0.1 mil tax increase (about $22 per household on average) and funding for the design phase — and approved the architectural design contract ($555,373) and a separate civil/site design contract ($80,250) to advance the project into design.",
-      docs: [ {label:"Architectural design packet", href:DESIGN_PKT, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
+      docs: [ {label:"Meeting video", href:VID_NOV5, icon:"▷"}, {label:"Architectural design packet", href:DESIGN_PKT, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
     { id: "design26", date: "2026-01-01", dateTop: "2026", dateSub: "Jan → Dec", tag: "Looking ahead",
       title: "The “design year” — drawings, permits, land development",
       body: "The Township designated 2026 as the design year: design and construction documentation, land development, and permitting are underway, alongside continued community engagement and funding preparation. This is the window for residents to review schematic designs and cost estimates as they firm up.",
@@ -279,7 +316,67 @@
     { id: "bid27", date: "2027-01-01", dateTop: "Early 2027", dateSub: "Jan → Feb", tag: "Looking ahead",
       title: "Construction bidding & contractor agreements",
       body: "Per the published schedule, the project moves to bidding and preparation of prime contractor agreements in early 2027 — the point at which firm construction costs come into focus before any groundbreaking.",
-      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] }
+      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
+
+    { id: "budget24", date: "2023-12-06", dateTop: "Dec 6, 2023", dateSub: "Board vote", tag: "Board action",
+      title: "2024 budget approved; police expansion requests rejected",
+      body: "The Board of Supervisors voted to approve the 2024 operating budget. In doing so, the Board rejected the Police Department's requests to hire additional officers and expand — a decision worth weighing against the staffing and space assumptions now driving the ~$10M facility proposal.",
+      docs: [ {label:"Meeting video", href:VID_1206, icon:"▷"}, {label:"Minutes", href:MIN_1206, icon:"▤"}, {label:"Agenda", href:AGE_1206, icon:"▤"} ] },
+
+    { id: "hybrid", date: "2024-02-21", dateTop: "Feb 21, 2024", dateSub: "Board vote", tag: "Board action",
+      title: "Board adopts a hybrid policing model",
+      body: "The Board voted to enact a hybrid policing model: the Pennsylvania State Police cover the overnight shift (midnight–6am) while Kennett Township Police handle the remaining hours. This set the department's actual coverage model — a key input any facility sized for the future should be measured against.",
+      docs: [ {label:"Police update presentation (PDF)", href:"documents/2024-02-21-police-update-presentation.pdf", icon:"▤"}, {label:"Meeting video", href:VID_0221, icon:"▷"}, {label:"Minutes", href:MIN_0221, icon:"▤"}, {label:"Agenda", href:AGE_0221, icon:"▤"} ] },
+
+    { id: "friends", date: "2025-06-04", dateTop: "Jun 4, 2025", dateSub: "Community", tag: "Public engagement",
+      title: "Friends of KTPD founded to fund the K-9 unit",
+      body: "Residents formed the Friends of Kennett Township Police Department, a volunteer group organized to privately fund the department's K-9 unit after the Township declined to pay for it — an example of how specific operational needs are being funded outside the budget even as a ~$10M facility advances.",
+      docs: [ {label:"Project hub", href:HUB, icon:"⌂"} ] },
+
+    { id: "accred", date: "2025-09-03", dateTop: "Sep 3, 2025", dateSub: "Board meeting", tag: "Board action",
+      title: "Accreditation update presented to the Board",
+      body: "The Police Department gave the Board an accreditation update, including recommendations and requirements that must be met. No copy of the update was linked on the meeting agenda for residents to review.",
+      docs: [ {label:"Meeting video", href:VID_0903, icon:"▷"}, {label:"Minutes", href:MIN_0903, icon:"▤"}, {label:"Agenda", href:AGE_0903, icon:"▤"} ] },
+
+    { id: "dec3vote", date: "2025-12-03", dateTop: "Dec 3, 2025", dateSub: "Board vote", tag: "Board action",
+      title: "Board votes tax increase for the municipal expansion",
+      body: "The Board voted on a tax increase tied explicitly to the municipal / police facility expansion.",
+      docs: [ {label:"Meeting video", href:VID_1203, icon:"▷"}, {label:"Minutes", href:MIN_1203, icon:"▤"}, {label:"Agenda", href:AGE_1203, icon:"▤"} ] },
+
+    { id: "cmt1203", date: "2025-12-03", dateTop: "Dec 3, 2025", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: introducing the petition",
+      body: "A resident opened public comment by introducing the petition “No New Taxes for Unapproved Projects,” asking the Board to pause tax increases tied to the facility until a public strategic plan is adopted.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2025-12-03-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_1203, icon:"▷"}, {label:"Minutes", href:MIN_1203, icon:"▤"}, {label:"Agenda", href:AGE_1203, icon:"▤"} ] },
+
+    { id: "cmt0105", date: "2026-01-05", dateTop: "Jan 5, 2026", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: reassess the size and scope",
+      body: "In public comment, a resident continued questioning the size and scope of the project in relation to actual police work, calling on the Board to reassess the proposal before committing to construction and borrowing.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-01-05-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_JAN5, icon:"▷"}, {label:"Minutes", href:MIN_0105, icon:"▤"} ] },
+
+    { id: "cmt0204", date: "2026-02-04", dateTop: "Feb 4, 2026", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: what policing model is right for us?",
+      body: "At the Board meeting — which also included a design-phase progress update — a resident asked what type of policing model is right for the community, and whether the proposed building is sized for the current model or a future 24/7 local model.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-02-04-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_FEB4, icon:"▷"}, {label:"Minutes", href:MIN_0204, icon:"▤"} ] },
+
+    { id: "workshop", date: "2026-03-11", dateTop: "Mar 11, 2026", dateSub: "Design workshop", tag: "Public engagement",
+      title: "Police facility design workshop",
+      body: "Architects met with Township residents in a design workshop to gather input on the overall exterior look of the proposed building.",
+      docs: [ {label:"Workshop video", href:VID_MAR11, icon:"▷"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
+
+    { id: "coffee", date: "2026-04-25", dateTop: "Apr 25, 2026", dateSub: "Community", tag: "Public engagement",
+      title: "Coffee with the Police",
+      body: "At a community “Coffee & Conversation” event, police gave a presentation on the duties and functions the new building would support.",
+      docs: [ {label:"Event video", href:VID_APR25, icon:"▷"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
+
+    { id: "cmt0506", date: "2026-05-06", dateTop: "May 6, 2026", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: where are the strategic analysis and plans?",
+      body: "A resident asked where the strategic analysis and supporting plans were for the proposed solution, arguing the Board had not published the data needed to justify the building's size and cost.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-05-06-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_MAY6, icon:"▷"}, {label:"Minutes", href:MIN_0506, icon:"▤"} ] },
+
+    { id: "cmt0603", date: "2026-06-03", dateTop: "Jun 3, 2026", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: publish a police strategic plan & projections",
+      body: "A resident called on the Board to create a public police strategic plan and to produce long-term financial projections for residents before advancing the project or raising taxes.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-06-03-strauser-comment.pdf", icon:"▤"}, {label:"Meeting video", href:VID_JUN3, icon:"▷"}, {label:"Minutes", href:MIN_0603, icon:"▤"} ] }
   ];
 
   var STATS = [
@@ -301,6 +398,8 @@
     { kind:"Official · Township", title:"Municipal Facility Expansion", desc:"The Township’s official project page with all current documents and updates.", href:"https://www.kennett.pa.us/422/Municipal-Facility-Expansion" },
     { kind:"Official · Township", title:"Agenda Center", desc:"Board of Supervisors agendas, minutes, and meeting packets.", href:"https://www.kennett.pa.us/AgendaCenter" },
     { kind:"Official · Township", title:"Document Center", desc:"Searchable archive of Township documents, budgets, and reports.", href:"https://www.kennett.pa.us/DocumentCenter" },
+    { kind:"Township record", title:"GKO Feasibility & Master Plan Study", desc:"The full 2025 feasibility and master plan study final report (PDF).", href:"https://www.kennett.pa.us/DocumentCenter/View/9087/Kennett-Township---Feasibility-Master-Plan-Study-Final-Report" },
+    { kind:"Township record", title:"2023 KTPD Strategic Analysis", desc:"The Police Department's 2023 strategic analysis (PDF) — a prior planning document.", href:"documents/ktpd_2023_strategic_analysis.pdf" },
     { kind:"Press", title:"Chester County Press", desc:"Independent local coverage of the proposed facility and meetings.", href:"https://www.chestercounty.com/?s=kennett+police+facility" },
     { kind:"Take action", title:"Board of Supervisors directory", desc:"Find supervisors and Township staff to share your input directly.", href:"https://www.kennett.pa.us/Directory.aspx" },
     { kind:"Stay informed", title:"Subscribe to Township news", desc:"Get the weekly e-news so meeting and open-house notices reach you.", href:"https://www.kennett.pa.us/list.aspx" }
@@ -316,7 +415,8 @@
     "Public engagement": { fg:"#9a6a06", bg:"#fdeec8" },
     "Press":             { fg:"#6b6147", bg:"#efe9da" },
     "Milestone":         { fg:"#2f7d2f", bg:"#e6f4e0" },
-    "Looking ahead":     { fg:"#b9710a", bg:"#fde8c2" }
+    "Looking ahead":     { fg:"#b9710a", bg:"#fde8c2" },
+    "Public comment":    { fg:"#6d4bc4", bg:"#ece5fb" }
   };
   function tagStyle(t) { return TAG_STYLE[t] || { fg:"#5e5640", bg:"#f1ecdd" }; }
 
@@ -445,7 +545,7 @@
   }
 
   function renderFilters(order) {
-    var tags = ["All", "Board action", "Public engagement", "Press", "Milestone", "Looking ahead"];
+    var tags = ["All", "Board action", "Public comment", "Public engagement", "Press", "Milestone", "Looking ahead"];
     var counts = {};
     tags.forEach(function (t) {
       counts[t] = t === "All" ? order.all.length : order.all.filter(function (e) { return e.tag === t; }).length;
