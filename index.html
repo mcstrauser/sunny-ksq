@@ -213,6 +213,12 @@
   var ZOOM_LINK = "https://www.kennett.pa.us/";
   var PETITION_URL = "https://forms.gle/BZd4DcVJxpuVEFZBA";
   var PETITION_GOAL = 500;
+  // Signature count. PETITION_COUNT is the manual fallback — update it as
+  // responses grow. If PETITION_CSV_URL is set to the form's responses Google
+  // Sheet "published to the web" as CSV, the count is fetched live on load
+  // (each data row = one signature) and overrides the manual number.
+  var PETITION_COUNT = 64;
+  var PETITION_CSV_URL = "";
   var EXPAND_ALL_BY_DEFAULT = false;
 
   // ---------- Helpers ----------
@@ -420,7 +426,7 @@
   function tagStyle(t) { return TAG_STYLE[t] || { fg:"#5e5640", bg:"#f1ecdd" }; }
 
   // ---------- State ----------
-  var state = { filter: "All", open: {}, allOpen: EXPAND_ALL_BY_DEFAULT, pet: 0 };
+  var state = { filter: "All", open: {}, allOpen: EXPAND_ALL_BY_DEFAULT, pet: PETITION_COUNT };
   var now = new Date();
   var nowMs = now.getTime();
 
@@ -659,6 +665,21 @@
     document.getElementById("petBar").style.width = pct + "%";
   }
 
+  // Pull the live signature count from the form's responses sheet (published to
+  // the web as CSV). Each non-empty data row past the header counts as one.
+  function fetchPetitionCount() {
+    if (!PETITION_CSV_URL) return;
+    fetch(PETITION_CSV_URL, { cache: "no-store" })
+      .then(function (r) { return r.ok ? r.text() : null; })
+      .then(function (text) {
+        if (!text) return;
+        var rows = text.replace(/\r/g, "").split("\n").filter(function (l) { return l.trim() !== ""; });
+        var n = Math.max(0, rows.length - 1); // drop header row
+        if (n > 0) { state.pet = n; renderPetition(); }
+      })
+      .catch(function () {});
+  }
+
   function renderAll() {
     var order = computeOrder();
     renderFilters(order);
@@ -674,18 +695,13 @@
     renderGoals();
     renderAll();
 
-    // Petition — restore from localStorage
-    try {
-      var stored = parseInt(localStorage.getItem("sunny_ksq_pet") || "0", 10);
-      if (stored) state.pet = stored;
-    } catch (e) {}
+    // Petition — show the current count, then refresh it live if a published
+    // responses CSV is configured.
     renderPetition();
+    fetchPetitionCount();
 
     document.getElementById("petBtn").addEventListener("click", function () {
       window.open(PETITION_URL, "_blank", "noopener");
-      state.pet += 1;
-      try { localStorage.setItem("sunny_ksq_pet", String(state.pet)); } catch (e) {}
-      renderPetition();
     });
 
     // Share
