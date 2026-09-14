@@ -281,6 +281,11 @@
   // Address, and two checkboxes: updates + sign the petition).
   var UPDATES_FORM_URL = "https://forms.gle/J7DMmxY2WDfnxar88";
   var EXPAND_ALL_BY_DEFAULT = false;
+  // Next Board meeting comes from meeting.json, which a scheduled GitHub Action
+  // (.github/workflows/update-meeting.yml) refreshes from the Township calendar
+  // RSS feed. If that file is missing or stale, the card falls back to the usual
+  // 1st & 3rd Wednesday, 7:00 PM schedule.
+  var MEETING_JSON = "meeting.json";
 
   // ---------- Helpers ----------
   function el(tag, styleText, html) {
@@ -309,6 +314,7 @@
   var FEAS_REPORT = "https://www.kennett.pa.us/DocumentCenter/View/9087/Kennett-Township---Feasibility-Master-Plan-Study-Final-Report";
   var FEAS_PPT    = "https://www.kennett.pa.us/DocumentCenter/View/8741/2025-08-Feasibility-Study-Power-Point-FINAL";
   var OCT_PRES    = "https://www.kennett.pa.us/DocumentCenter/View/9088/2025-10-Feasibility-Study-Update-FINAL";
+  var STAFFING_PRES = "https://www.kennett.pa.us/DocumentCenter/View/12426/Agenda-item-7-Police-Staffing-Analysis-Presentation_DRAFT202608";
 
   // Meeting videos (Township-posted recordings)
   var VID_AUG6  = "https://jmp.sh/share/k4EBm7VqOxkFSM9zXqlZ";
@@ -458,7 +464,29 @@
     { id: "oxford0817", date: "2026-08-17", dateTop: "Aug 17, 2026", dateSub: "Regional news", tag: "Press",
       title: "Neighboring Oxford Borough folds its police into a regional department",
       body: "Oxford Borough Council voted 5–2 to dissolve its nearly 100-year-old police department and join the Southern Chester County Regional Police Department alongside New Garden, West Grove, and Avondale, effective January 1. An independent financial analysis found police operations consumed roughly half the Borough's general-fund operating budget — about 90% of it workforce costs (salaries, healthcare, pensions, and benefits) rising faster than general inflation — and concluded the standalone department was becoming unsustainable without new taxes. Oxford weighed five service models before choosing regionalization, which preserves 24/7 coverage, keeps an Oxford substation, and gives the Borough a seat in the regional department's governance. The lesson for Kennett Township: decide the sustainable long-term police service model — and publish the assumptions behind it — before borrowing millions for a facility that could lock taxpayers into one model for generations. Plan first, build second.",
-      docs: [ {label:"Inquirer coverage", href:"https://www.inquirer.com/news/pennsylvania/oxford-borough-police-department-regionalization-20260818.html", icon:"▤"}, {label:"6abc coverage", href:"https://6abc.com/post/community-voices-opposition-city-council-votes-disband-police-department-oxford-borough-pennsylvania/19697903/", icon:"▷"}, {label:"Petition", href:PETITION_URL, icon:"✶"} ] }
+      docs: [ {label:"Inquirer coverage", href:"https://www.inquirer.com/news/pennsylvania/oxford-borough-police-department-regionalization-20260818.html", icon:"▤"}, {label:"6abc coverage", href:"https://6abc.com/post/community-voices-opposition-city-council-votes-disband-police-department-oxford-borough-pennsylvania/19697903/", icon:"▷"}, {label:"Petition", href:PETITION_URL, icon:"✶"} ] },
+
+    // Same-day events keep array order, so the staffing presentation (listed
+    // first) shows above the 9/9 public comment.
+    { id: "staffing0909", date: "2026-09-09", dateTop: "Sep 9, 2026", dateSub: "Staff presentation", tag: "Board action",
+      title: "Police Staffing Analysis Presented — Questions Remain Before September 23",
+      body: [
+        "Kennett Township presented a new Police Staffing Analysis on September 9 as part of its planning for the proposed police building.",
+        "The Township concluded that the current 11-person police department is appropriately staffed under the staffing model it presented and that no additional officers are currently warranted. The presentation also states that using Pennsylvania State Police for overnight coverage has been effective and efficient and that no changes to that coverage model are currently planned.",
+        "Looking ahead, the Township modeled police staffing through 2055 because the proposed building may be financed with a 30-year bond. Its highest-growth scenario projects Kennett Township’s population increasing from 9,253 in 2025 to 15,164 in 2055, and the Township estimates that this could eventually require a police department of as many as 18 employees — seven more than today.",
+        "The presentation is an important step toward connecting the size of the proposed building to an actual staffing plan, but significant questions remain.",
+        "What would actually trigger hiring another officer? Will staffing decisions be based on population alone, or actual calls, crime, workload, response times and other measures? What would trigger Kennett Township to resume overnight police coverage instead of using the State Police?",
+        "There are also important questions about the population projections. The Township’s high-growth scenario assumes 1.66% annual population growth continuing through 2055 and reaches 15,164 residents — substantially higher than the DVRPC projections shown in the Township’s own presentation. We need to understand whether that level of growth is actually possible under current zoning and available development capacity.",
+        "And there is another question worth explaining: the Township’s calculation for today’s staffing reduces the number of patrol officers by 25% because State Police cover the overnight shift, but the 2055 calculation does not appear to make the same adjustment.",
+        "The Board has specifically asked residents to review this information and bring questions to the September 23 Board of Supervisors meeting.",
+        "Please review the presentation, send your questions to the Board of Supervisors, and participate on September 23. Decisions about staffing assumptions today will help determine the size — and ultimately the cost — of the police building taxpayers may be financing for decades."
+      ],
+      docs: [ {label:"Staffing presentation (PDF)", href:STAFFING_PRES, icon:"▤"}, {label:"Project hub", href:HUB, icon:"⌂"} ] },
+
+    { id: "cmt0909", date: "2026-09-09", dateTop: "Sep 9, 2026", dateSub: "Public comment", tag: "Public comment",
+      title: "Resident comment: show the revenue from growth before raising taxes",
+      body: "Stepping back from the facility itself, a resident addressed Kennett Township's overall tax burden: a 3.7-mill property tax — above New Garden (3.27), Pocopson (2.2), Newlin (2.1), West Marlborough (2.0) and Pennsbury (1.49) — plus a 1% earned income tax and a further 0.25% open-space EIT. She noted the Township is growing, with Rosedale, Parkside and Kennett Pointe adding 332 residential units plus commercial space, and asked the Board to show how much new property- and earned-income-tax revenue that growth will generate, what it costs, and the net benefit. Before any further increase, she asked the Board to publicly show what it has done to constrain spending, the alternatives and service models it has examined — renting or selling Fussell House, generating revenue from recreational facilities, and sharing services regionally — pointing to Oxford Borough's decision to join the Southern Chester County Regional Police Department while keeping 24-hour coverage and a local substation. Citing last year's 0.1-mill increase and a financial plan contemplating further 0.1-mill increases over seven years, she argued that “seven small tax increases are still a large tax increase” and that tax increases should be the last option considered, not the first assumption built into the plan.",
+      docs: [ {label:"Comments (PDF)", href:"documents/2026-09-09-strauser-comment.pdf", icon:"▤"}, {label:"Petition", href:PETITION_URL, icon:"✶"} ] }
   ];
 
   var STATS = [
@@ -505,7 +533,22 @@
   var now = new Date();
   var nowMs = now.getTime();
 
-  // ---------- Meeting date logic (1st & 3rd Wednesday, 7:00 PM) ----------
+  // ---------- Meeting date logic ----------
+  // Resolves with the synced calendar date when it's still upcoming (meetings
+  // run ~2 hours, so keep showing it until then); otherwise the default rule.
+  function loadMeetingDate() {
+    return fetch(MEETING_JSON, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        if (!j || !j.date) return null;
+        var d = j.date.split("-"), t = (j.time || "19:00").split(":");
+        var m = new Date(+d[0], +d[1] - 1, +d[2], +t[0], +t[1], 0);
+        return m.getTime() + 2 * 3600000 > Date.now() ? m : null;
+      })
+      .catch(function () { return null; })
+      .then(function (m) { return m || nextMeetingDate(); });
+  }
+  // Default schedule: 1st & 3rd Wednesday, 7:00 PM
   function nextMeetingDate() {
     var n = new Date();
     function mk(y, m, wedNth) {
@@ -690,7 +733,9 @@
 
       if (isOpen) {
         var body = el("div", "padding:0 18px 18px;");
-        body.appendChild(el("p", "font-size:14.5px; line-height:1.6; color:#5e5640; margin:0 0 15px;", esc(e.body)));
+        [].concat(e.body).forEach(function (para) {
+          body.appendChild(el("p", "font-size:14.5px; line-height:1.6; color:#5e5640; margin:0 0 15px;", esc(para)));
+        });
         var docsWrap = el("div", "display:flex; flex-wrap:wrap; gap:8px;");
         (e.docs || []).forEach(function (doc) {
           var a = el("a", "display:inline-flex; align-items:center; gap:6px; font-family:'Spline Sans Mono',monospace; font-size:11.5px; font-weight:500; color:#1576a6; background:#eef6fb; border:1px solid #cfe7f6; padding:6px 12px; border-radius:7px; text-decoration:none;", esc(doc.icon) + " " + esc(doc.label));
@@ -752,15 +797,16 @@
     });
 
     // Meeting card
-    var mtg = nextMeetingDate();
-    document.getElementById("meetingDate").textContent = mtg.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
-    document.getElementById("meetingTime").textContent = mtg.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + " · public comment welcome";
     document.getElementById("zoomHref").href = ZOOM_LINK;
-    document.getElementById("icsHref").href = buildICS(mtg);
-    var cd = document.getElementById("countdown");
-    function tick() { cd.textContent = countdownText(mtg); }
-    tick();
-    setInterval(tick, 1000);
+    loadMeetingDate().then(function (mtg) {
+      document.getElementById("meetingDate").textContent = mtg.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+      document.getElementById("meetingTime").textContent = mtg.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + " · public comment welcome";
+      document.getElementById("icsHref").href = buildICS(mtg);
+      var cd = document.getElementById("countdown");
+      function tick() { cd.textContent = countdownText(mtg); }
+      tick();
+      setInterval(tick, 1000);
+    });
 
     // Email builder modal (guided, personalized message → mailto)
     initEmailBuilder();

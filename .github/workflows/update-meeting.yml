@@ -1,0 +1,27 @@
+name: Sync next Board meeting
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/update-meeting.py
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- meeting.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898702+github-actions[bot]@users.noreply.github.com"
+          git add meeting.json
+          git commit -m "Sync next Board of Supervisors meeting from Township calendar"
+          git push
